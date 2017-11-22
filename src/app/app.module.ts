@@ -3,16 +3,26 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {UserService} from "./services/user.service";
+import {WebsocketService} from "./services/websocket.service";
+import { UserComponent } from "./domain/user/user.component"
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    UserService,
+    WebsocketService
+  ],
+  bootstrap: [
+    AppComponent,
+    UserComponent
+  ]
 })
 export class AppModule { }
