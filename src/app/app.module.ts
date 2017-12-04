@@ -3,26 +3,40 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {UserService} from "./services/user.service";
+import {MessageService} from "./services/message.service";
 import {WebsocketService} from "./services/websocket.service";
-import { UserComponent } from "./domain/user/user.component"
+import { MainComponent } from "./domain/main/main.component"
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatButtonModule, MatGridListModule, MatIconModule, MatInputModule,
+  MatSnackBarModule, MatProgressSpinnerModule} from "@angular/material";
+import {PinPadComponent} from "./domain/pinpad/pin-pad.component";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    MainComponent,
+    PinPadComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
-    UserService,
+    MessageService,
     WebsocketService
   ],
   bootstrap: [
     AppComponent,
-    UserComponent
+    MainComponent
   ]
 })
 export class AppModule { }

@@ -1,0 +1,56 @@
+
+<div class="pin-pad-wrapper">
+  <div class="pin-form">
+
+     <!-- <mat-progress-spinner
+        [mode]="spinnerMode"
+        [value]="spinnerValue">
+      </mat-progress-spinner> -->
+
+      <form >
+          <mat-input-container>
+          <input id="pin-input" readonly matInput class="pin-input" type="password" placeholder="PIN" name="email" id="email"  [(ngModel)]="pin">
+        </mat-input-container>
+      </form>
+  </div>
+  <div>
+    <mat-grid-list cols="3" rowHeight="2:1">
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('7')">7</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('8')">8</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('9')">9</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('4')">4</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('5')">5</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('6')">6</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('1')">1</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('2')">2</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('3')">3</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" >.</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="addNumber('0')">0</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button class="pin-button" color="primary" (click)="clearOneNumber()">C</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

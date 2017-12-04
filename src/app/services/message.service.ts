@@ -3,11 +3,10 @@ import { WebsocketService } from './websocket.service';
 import { Observable, Subject } from 'rxjs/Rx';
 
 @Injectable()
-export class UserService {
-  
+export class MessageService {
+
   messages: Subject<any>;
-  
-  // Our constructor calls our wsService connect method
+
   constructor(private wsService: WebsocketService) {
     this.messages = <Subject<any>>wsService
       .connect()
@@ -15,9 +14,7 @@ export class UserService {
         return response;
       })
    }
-  
-  // Our simplified interface for sending
-  // messages back to our socket.io server
+
   sendMsg(msg) {
     this.messages.next(msg);
   }

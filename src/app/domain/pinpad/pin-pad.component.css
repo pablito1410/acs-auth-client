@@ -1,0 +1,24 @@
+.pin-pad-wrapper {
+  position: relative;
+  top: 0;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.pin-button {
+  width: 90%;
+  height: 90%;
+  font-size: 48px;
+}
+
+.pin-form {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pin-input {
+  width: 100%;
+  text-align: center;
+  font-size: 48px;
+}

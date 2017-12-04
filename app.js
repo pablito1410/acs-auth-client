@@ -1,6 +1,7 @@
 let app = require('express')();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
+var bodyParser = require('body-parser');
 
 io.on('connection', (socket) => {
 
@@ -21,13 +22,13 @@ io.on('connection', (socket) => {
     });
 });
 
-// Initialize our websocket server on port 5000
+
 http.listen(5000, () => {
     console.log('started on port 5000');
 });
-
+app.use(bodyParser.json());
 app.post('/', function(request, response){
-  console.log(request.body);      // your JSON
+  console.log('body=' + JSON.stringify(request.body));
   io.emit('message', {type:'new-message', text: request.body});
-  response.send(request.body);    // echo the result back
+  response.send(request.body);
 });
