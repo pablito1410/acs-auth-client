@@ -1,42 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
-import {MessageService} from "./services/message.service";
-import {WebsocketService} from "./services/websocket.service";
-import { MainComponent } from "./domain/main/main.component"
+import {MessageService} from "./domain/main/services/message.service";
+import {WebsocketService} from "./domain/main/services/websocket.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule, MatGridListModule, MatIconModule, MatInputModule,
-  MatSnackBarModule, MatProgressSpinnerModule} from "@angular/material";
-import {PinPadComponent} from "./domain/pinpad/pin-pad.component";
-import {FormsModule} from "@angular/forms";
+import {MainModule} from "./domain/main/main.module";
+import {appRoutes} from "./app.routes";
+import {RouterModule} from "@angular/router";
+import {AuthenticationGuard} from "./domain/main/authentication/auth.guard";
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MainComponent,
-    PinPadComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    FormsModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule
+    MainModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     MessageService,
-    WebsocketService
+    WebsocketService,
+    AuthenticationGuard
   ],
   bootstrap: [
-    AppComponent,
-    MainComponent
+    AppComponent
   ]
 })
 export class AppModule { }

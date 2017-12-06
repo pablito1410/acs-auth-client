@@ -1,0 +1,36 @@
+.auth-wrapper {
+  position: relative;
+  top: 0;
+  width: 50%;
+  height: 90vh;
+  margin: 0 auto;
+}
+
+.auth-card {
+  width: 70%;
+  height: 95%;
+  position: relative;
+  margin: 0 auto;
+  background-color: #7b1fa2;
+  /*color: black;*/
+}
+
+/*mat-card-subtitle {*/
+  /*color: grey;*/
+/*}*/
+.auth-card-header-success {
+  background-image: url('https://websitecdn.executestrategy.net/wp-content/uploads/2017/03/4ibLy7r9T.png');
+  background-size: cover;
+}
+.auth-card-header-failed {
+  background-image: url('https://d30y9cdsu7xlg0.cloudfront.net/png/1391830-200.png');
+  background-size: cover;
+}
+
+/*.auth-card-header auth-card-header-failed {*/
+  /*background-image: url('http://www.clker.com/cliparts/b/7/7/c/12247843801937558056schoolfreeware_Cancel.svg.hi.png');*/
+/*}*/
+
+.auth-card img {
+  border-radius: 50%;
+}
