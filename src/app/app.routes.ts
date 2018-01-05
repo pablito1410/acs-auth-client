@@ -5,11 +5,13 @@ import {AuthSuccessComponent} from "./domain/main/authentication/auth.success.co
 import {AuthFailureComponent} from "./domain/main/authentication/auth.failure.component";
 import {AuthenticationGuard} from "./domain/main/authentication/auth.guard";
 import {PinPadComponent} from "./domain/main/pinpad/pin-pad.component";
+import {AdminPanelComponent} from "./domain/main/administration/admin-panel.component";
 
 export const appRoutes: Route[] = [
   { path: 'main', component: PinPadComponent },
   { path: 'auth-success', component: AuthSuccessComponent, canActivate: [AuthenticationGuard] },
   { path: 'auth-failure', component: AuthFailureComponent, canActivate: [AuthenticationGuard] },
+  { path: 'admin-panel', component: AdminPanelComponent, canActivate: [AuthenticationGuard] },
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

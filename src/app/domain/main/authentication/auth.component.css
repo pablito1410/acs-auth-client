@@ -34,3 +34,7 @@
 .auth-card img {
   border-radius: 50%;
 }
+
+button {
+  display: inline-block !important;
+}

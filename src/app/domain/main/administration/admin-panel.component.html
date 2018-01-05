@@ -1,0 +1,71 @@
+<div class="admin-panel-wrapper">
+  <mat-accordion >
+    <mat-expansion-panel class="admin-panel-accordion">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Fingerprint scanner
+        </mat-panel-title>
+        <mat-panel-description>
+          Enroll fingerprint
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-grid-list cols="2" rowHeight="6:1">
+        <mat-grid-tile>
+
+          <mat-form-field>
+            <mat-select placeholder="User" [formControl]="validationControl" required
+                        class="example-panel-red" [(ngModel)]="user">
+              <mat-option>--</mat-option>
+              <mat-option *ngFor="let user of users" [value]="user">
+                {{user.getNameText()}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="validationControl.hasError('required')">Please choose an user</mat-error>
+            <!--<mat-hint>{{validationControl.value?.role.toString()}}</mat-hint>-->
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button mat-raised-button color="warn" (click)="enroll()">Enroll</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <p align="center">
+        {{infoMsg}}
+      </p>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel class="admin-panel-accordion">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Card reader
+        </mat-panel-title>
+        <mat-panel-description>
+          Assign the card to the user
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-grid-list cols="2" rowHeight="6:1">
+        <mat-grid-tile>
+
+          <mat-form-field>
+            <mat-select placeholder="User" [formControl]="validationControl" required
+                        class="example-panel-red" [(ngModel)]="user">
+              <mat-option>--</mat-option>
+              <mat-option *ngFor="let user of users" [value]="user">
+                {{user.getNameText()}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="validationControl.hasError('required')">Please choose an user</mat-error>
+            <!--<mat-hint>{{validationControl.value?.role.toString()}}</mat-hint>-->
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button mat-raised-button color="warn" (click)="enrollCard()">Enroll</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <p align="center">
+        {{infoMsgCard}}
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -4,6 +4,13 @@ export enum NotificationType {
 
   PROCESSING_FINGERPRINT = 1,
   IDENTIFIED = 2,
+  INPUT_FINGER = 3,
+  TAKE_OFF_FINGER = 4,
+
+  INPUT_CARD = 5,
+  TAKE_OFF_CARD = 6,
+  PROCESSING_CARD = 7,
+  IDENTIFIED_CARD = 8
 
 
 

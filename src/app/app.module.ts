@@ -8,6 +8,10 @@ import {MainModule} from "./domain/main/main.module";
 import {appRoutes} from "./app.routes";
 import {RouterModule} from "@angular/router";
 import {AuthenticationGuard} from "./domain/main/authentication/auth.guard";
+import {CommonModule} from "@angular/common";
+import {FingerprintScannerService} from "./domain/main/services/fingerprintscanner.service";
+import {HttpModule} from "@angular/http";
+import {RfidModuleService} from "./domain/main/services/rfid.module.service";
 
 
 @NgModule({
@@ -18,12 +22,15 @@ import {AuthenticationGuard} from "./domain/main/authentication/auth.guard";
     BrowserModule,
     BrowserAnimationsModule,
     MainModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
     MessageService,
     WebsocketService,
-    AuthenticationGuard
+    AuthenticationGuard,
+    FingerprintScannerService,
+    RfidModuleService
   ],
   bootstrap: [
     AppComponent

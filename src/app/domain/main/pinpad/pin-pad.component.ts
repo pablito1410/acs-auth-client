@@ -5,6 +5,8 @@ import {Observer, Observable} from "rxjs";
 import {MatSnackBar, MatSnackBarConfig, MatDialog} from "@angular/material";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../authentication/service/auth.service";
+import {UserService} from "../services/user.service";
+import {Role} from "../model/role";
 
 
 @Component({
@@ -17,6 +19,7 @@ export class PinPadComponent implements OnInit{
   pin: string = ''
 
   constructor(private snackBar: MatSnackBar,
+              private userService: UserService,
               private router: Router,
               private authenticationService: AuthenticationService) {
   }
@@ -45,19 +48,22 @@ export class PinPadComponent implements OnInit{
   }
 
   private authenticate(pin: string) {
-    let user = this.authenticationService.authenticateByPin(pin)
-    if (user == null) {
-      console.log('user=null')
-      this.router.navigate(['auth-failure'])
+    this.authenticationService.authenticateByPin(pin).subscribe(response => {
+      if (response.status == 200) {
+        let user = response.json()
+        this.router.navigate(['auth-success', {
+          id: user.id,
+          name: '',
+          avatarUrl: user.avatarUrl,
+          role: user.role
+        }])
+        this.snackBar.dismiss()
+      }
       this.snackBar.dismiss()
-    } else {
-      this.router.navigate(['auth-success', {
-        id: '1',
-        name: user.name,
-        lastName: user.lastName,
-        avatarUrl: user.avatarUrl
-      }])
-      this.snackBar.dismiss()
-    }
+    },
+    error => {
+        this.router.navigate(['auth-failure'])
+        this.snackBar.dismiss()
+    })
   }
 }

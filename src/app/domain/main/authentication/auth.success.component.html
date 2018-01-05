@@ -2,13 +2,12 @@
   <mat-card class="auth-card">
     <mat-card-header >
       <div mat-card-avatar class="auth-card-header-success"></div>
-      <mat-card-title>{{name + ' ' + lastName + '(' + id + ')'}}</mat-card-title>
+      <mat-card-title>{{name}}</mat-card-title>
       <mat-card-subtitle color="#000000">Successfully authenticated</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image
-         src="{{avatarUrl}}" alt="Photo of a Shiba Inu">
+      <img mat-card-image src="{{showAvatar() ? avatarUrl : '..\\..\\..\\assets\\img\\default-user.png'}}">
     <mat-card-content>
-
+      <button *ngIf="isAdmin" mat-raised-button color="primary" (click)="navigateToAdminPanel()">Admin panel</button>
     </mat-card-content>
   </mat-card>
 </div>
